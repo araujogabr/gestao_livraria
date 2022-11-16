@@ -1,0 +1,187 @@
+/*[25] - Import o CSS para o HTML*/
+
+/*[25] - IMPORTE A FONTE "Poppins" do Google Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+* { /*[26] - Resete o padrão dos navegadores*/
+    margin: 0; /*[27] - Zera a margin externa*/
+    padding: 0; /*[28] - Zera a margin interna*/
+    border: 0; /*[29] - Zera a borda*/
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{ /*[30] - Formatando o Body*/
+    background-color: #1b2029; /*[31] - Cor do fundo*/
+    color: white; /*[32] - Cor do texto*/
+    font-weight: 500; /*[33] - Espessura do texto*/
+    display: flex; /*[34] - Disposição de divs uma após a outra, sem quebra de linha*/
+    min-height: 100vh; /*[35] - altura mínima da página // vh: centésimos da altura da janela de visualização.*/
+    min-width: 100vw;
+}
+
+
+main{ /*[36] - Formatando a Main*/
+    width: 50vw; /*[37] - largura mínima da página // vw: centésimos da largura da janela de visualização.*/
+    display: flex; /*[38] - Disposição de divs uma após a outra*/
+    flex-direction: column; /*[39] - Disposição do conteúdo dentro das divs uma após o outro, em formato de coluna. Então vai ficar um abaixo do outro*/
+    align-items: center;  /*[40] - Alinha itens dentro da divs todos centralizados, tando na horizontal quanto na vertical*/
+    justify-content: center; /*[41] - Disposição dos conteúdos alinhados uns com os outros em direção ao centro do contêiner*/
+    margin: 10px 10px 10px 10px;
+}
+
+main h1{ /*[36] - Formatando o texto Criar Conta*/
+    margin-top: 3rem;
+    color: #3DD05F; 
+    font-size: 3rem; /*[38] - Tamanho da fonte*/
+    margin-bottom: 1rem; /*[39] - Margin inferior*/
+    text-align: center;
+}
+
+main .alternative{  /*[68] - Formatando o OR*/
+    margin-top: 1rem;
+}
+
+main .alternative span{ /*[69] - Formatando Texto dentro do span*/
+    font-size: 1rem; /*Tamanho da fonte*/
+    font-weight: 400; /*Espessura*/
+    color: rgba(255, 255, 255, 0.3); /*Cor branca, 0.3 é a transparência*/
+    position: sticky;
+}
+
+main .alternative span::before, main .alternative span::after { /*[70] - Formatando as linhas before e after que ficam do lado do "OU"*/
+    position: absolute;
+    content: '';
+    height: 1px; /*Altura da linha - Como é uma linha, poderíamos tbm dizer que é uma grossura da linha*/
+    width: 50px; /*Largura da linha - Como é uma linha, poderíamos tbm dizer que é o comprimento da linha*/
+    bottom: 50%; /*Alinha a linha ao SPAN na horizontal*/
+    right: 160px;
+    background: rgba(255, 255, 255, 0.3);
+}/*Nota-se que essas propriedades foram aplicadas as linhas before e after, por isso parece que uma deles sumiu mas está sobre posta. Para ajustar, vamos coloar a propriedade left no after, passo [71]*/
+
+main .alternative span::after{ /*71 - Colocando a propriedade de posição da linha após o SPAN*/
+    left:160px;
+}
+
+/*FIM PARTE DO "OU" */
+/*AGORA VAMOS FAZER SOMENTE A RESPONSIVIDADE - VAMOS PARA A ULTIMA LINHA DO STYLE.CSS E CONTINUAR DO PASSO [72]*/
+
+main form{ /*[47] - Formatando o formulário*/
+    display: flex; /*[48] - Disposição do conteúdo do formulário um após o outro*/
+    flex-direction: column; /*[49] - Em formato de coluna*/
+    align-items: center; /*[50] - Alinha itens no centro*/
+}
+
+main form label{ /*[50] - Colocando o conteúdo do label (span e input) um abaixo do outro*/
+    display: flex; 
+    flex-direction: column;
+}
+
+main form label span{ /*[51] - Formatando os textos do span*/
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+main form input{
+    background-color: #161923; /*[52] - Formatando os inputs*/
+    width: 300px; /*[53] - Largura*/
+    height: 40px; /*[54] - Altura*/
+    padding: 0 0.5 rem; /*[55] - Espaçamento*/
+    margin-top: 1rem; /*[56] - Margin superior*/
+    outline: none; /*[57] - Linha externa ou borda do label*/
+    color: rgba(166, 166, 166); /*[58] - Cor do texto*/
+    font-size: 1rem; /*[59] - Tamanho do texto*/
+    border: 1px solid #040b18; /*[60] - Borda do texto*/
+    border-radius: 8px; /*[61] - Curvatura dos cantos*/
+    padding: 1rem; /*Dá um espaço da borda do input para não ficar muito colado*/
+}
+
+main form input[type="date"]::-webkit-calendar-picker-indicator { /*Alterar cor do Icone do calendário*/
+    cursor: pointer;
+    filter: invert(0.8) brightness(100%) sepia(100%) saturate(100%) hue-rotate(20deg);
+  }
+
+
+main form input[type="submit"]{ /*[62] - Formatando o botão de Criar Conta*/
+    cursor: pointer; 
+    width: 70%;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 32px;
+    background: #3DD05F;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all .3s ease-in-out; /*[64] - Fazer a transição da cor do botão para o hover. 3 segundos*/
+    padding: 0; /*Quando eu coloquei o padding no main form input (aí em cima), aplicou o paddingo no botão tbm. Aqui eu estou tirando*/
+}
+
+main form input[type="submit"]:hover{ /*[63] - Formatando hover do botão Criar Conta*/
+    background-color: #1f8b38;
+}
+
+section.images{ /*[64] - Formatando a classe imagem no fim do container*/
+    width: 50vw;
+    display: flex;
+    align-items: flex-end; /*Modificando o display flex da imagem no eixo X*/
+    justify-content: flex-end; /*Modificando o display flex da imagem no eixo Y*/
+    padding: 4rem;
+}
+
+section.images img{ /*[65] - Formatando a tag img no fim do container*/
+    width: 100%;
+}
+
+section.images .circle{ /*[66] - Formatando o circulo*/
+    position: absolute; /*Absoluto em relação ao body*/
+    height: 100%; /*Altura do círculo*/
+    width: 100%; /*Largura do círculo*/
+    top: 0; /*Posição na vertical*/
+    left: 0; /*Posição na horizontal*/
+    background: linear-gradient(45deg, #f8f3f2, #225ba5, #37de19); /*Até aqui o círculo está ocupando toda a página*/
+    clip-path: circle(40% at right 80%); /*Propriedade para recortar imagem - at right é a posição no eixo X // 80% é a posição no eixo Y */
+    z-index: -1; /*Eixo Z - sobrepõe elemento. O -1 é que fica abaixo*/
+}
+
+/*[67] - Agora vamos formatar a tag span do "OU" Voltar lá onde está escrito o passo [46] e continue do [68]*/
+
+@media only screen and (min-width: 900px) and (max-width: 1200px){ /*[72] - Comando para verificar a largura da tela [Tablet Grande]*/
+    section.images img{
+        width: 110%; /*Aumentando um pouco a imagem*/
+    }
+
+    section.images .circle{
+        clip-path: circle(35% at right 80%); /*Diminuindo o circulo*/
+    }
+}
+
+@media only screen and (max-width: 900px){ /*[73] - Comando para verificar a largura da tela [Tablet Pequeno]*/
+    section.images{
+        display: none;
+        visibility: hidden;
+    }
+
+    main{
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 450px){ /*[74] - Comando para verificar a largura da tela [Celular]*/
+    main h1{
+        font-size: 2rem;
+    }
+
+    main .alternative span{
+        font-size: 0.8rem;
+    }
+
+    main form label span, main form input[type="submit"]{
+        font-size: 1rem;
+    }
+
+    main form input[type="submit"]{ /*[62] - Formatando o botão de Criar Conta*/
+        width: 100%;
+    }
+}
